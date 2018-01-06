@@ -1,7 +1,8 @@
-package aliguvenc.musicapp;
+package aliguvenc.musicapp.http;
 
 import java.util.concurrent.TimeUnit;
 
+import aliguvenc.musicapp.BuildConfig;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
