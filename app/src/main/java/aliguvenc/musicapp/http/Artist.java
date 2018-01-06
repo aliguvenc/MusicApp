@@ -4,7 +4,7 @@ package aliguvenc.musicapp.http;
  * Created by aliguvenc on 5.01.2018.
  */
 
-public class Artist extends Data {
+public class Artist extends Genre {
 
     private String release_date;
     private String cover_medium;

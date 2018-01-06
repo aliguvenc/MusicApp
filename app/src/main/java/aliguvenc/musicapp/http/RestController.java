@@ -26,15 +26,25 @@ public class RestController {
 
     private RestController() {
 
-        int TIME_OUT = 60;
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(new HttpLoggingInterceptor())
-                .readTimeout(TIME_OUT, TimeUnit.SECONDS)
-                .build();
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+
+        if (BuildConfig.DEBUG) {
+            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        } else {
+            logging.setLevel(HttpLoggingInterceptor.Level.NONE);
+        }
+
+        int timeoutInterval=60;
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        httpClient.addInterceptor(logging);
+        httpClient.connectTimeout(timeoutInterval, TimeUnit.SECONDS);
+        httpClient.readTimeout(timeoutInterval, TimeUnit.SECONDS);
+
+        OkHttpClient client = httpClient.build();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClient)
+                .client(client)
                 .baseUrl(BuildConfig.BASE_URL)
                 .build();
 

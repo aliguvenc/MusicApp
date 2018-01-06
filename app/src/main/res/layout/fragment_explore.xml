@@ -1,0 +1,33 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="exploreViewModel"
+            type="aliguvenc.musicapp.viewmodel.ExploreViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/exploreMusicRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/explore_recycler_view"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/progress_bar"
+            android:visibility="@{exploreViewModel.isDataLoading? View.VISIBLE:View.GONE}" />
+
+    </RelativeLayout>
+</layout>

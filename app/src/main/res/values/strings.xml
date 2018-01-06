@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MusicApp</string>
+    <string name="favourites">Favoriler</string>
+    <string name="recents">Son Dinlenenler</string>
+    <string name="explore">Keşfet</string>
+
+    <!-- Content Descriptions -->
+    <string name="explore_recycler_view">recycler view for showing music genres</string>
+    <string name="progress_bar">showing genre loading status</string>
+    <string name="category_image">showing category image</string>
+    <string name="category_name">showing category name</string>
 </resources>
