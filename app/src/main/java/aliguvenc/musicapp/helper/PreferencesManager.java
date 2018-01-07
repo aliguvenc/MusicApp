@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import aliguvenc.musicapp.http.Track;
@@ -37,6 +38,9 @@ public class PreferencesManager {
 
     public void addToFavoriteList(Track track) {
         List<Track> trackList = getFavoriteList();
+        if (trackList==null) {
+            trackList=new ArrayList<>();
+        }
         trackList.add(track);
         saveList(trackList);
     }
