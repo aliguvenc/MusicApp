@@ -12,8 +12,8 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 
 import aliguvenc.musicapp.BR;
-import aliguvenc.musicapp.Communication;
-import aliguvenc.musicapp.MusicApplication;
+import aliguvenc.musicapp.helper.Communication;
+import aliguvenc.musicapp.helper.MusicApplication;
 import aliguvenc.musicapp.http.BaseCallback;
 import aliguvenc.musicapp.http.Genre;
 import aliguvenc.musicapp.http.GenreResponse;

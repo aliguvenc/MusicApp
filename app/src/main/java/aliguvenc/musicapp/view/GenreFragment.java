@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import aliguvenc.musicapp.Communication;
+import aliguvenc.musicapp.helper.Communication;
 import aliguvenc.musicapp.R;
 import aliguvenc.musicapp.databinding.FragmentExploreBinding;
 import aliguvenc.musicapp.http.GenreResponse;
@@ -24,6 +24,7 @@ import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 public class GenreFragment extends BaseFragment implements Communication.DataListener<GenreResponse> {
 
     private FragmentExploreBinding binding;
+    public static final String TAG = "Keşfet";
 
     public GenreFragment() {
         // Required empty public constructor
@@ -38,6 +39,7 @@ public class GenreFragment extends BaseFragment implements Communication.DataLis
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view,savedInstanceState);
         new GenreViewModel(this);
         binding.exploreMusicRV.setItemAnimator(new SlideInLeftAnimator());
         binding.exploreMusicRV.setAdapter(new GenreAdapter(getClickListener()));

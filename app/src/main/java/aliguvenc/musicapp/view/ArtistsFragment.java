@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import aliguvenc.musicapp.Communication;
+import aliguvenc.musicapp.helper.Communication;
 import aliguvenc.musicapp.R;
 import aliguvenc.musicapp.databinding.FragmentArtistsBinding;
 import aliguvenc.musicapp.http.Genre;
@@ -40,6 +40,7 @@ public class ArtistsFragment extends BaseFragment implements Communication.DataL
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        ((MainActivity)getActivity()).hideToolbar();
         ArtistsViewModel viewModel = new ArtistsViewModel(this, getArguments());
         binding.setArtistsViewModel(viewModel);
     }

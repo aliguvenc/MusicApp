@@ -14,9 +14,4 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/favourite"/>
 
-    <item
-        android:id="@+id/recents"
-        android:title="@string/recents"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/recents"/>
 </menu>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MusicApp</string>
+    <string name="app_name">Your Music</string>
     <string name="favourites">Favoriler</string>
     <string name="recents">Son Dinlenenler</string>
     <string name="explore">Keşfet</string>

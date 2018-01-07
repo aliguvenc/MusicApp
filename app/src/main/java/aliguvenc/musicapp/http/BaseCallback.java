@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
 
-import aliguvenc.musicapp.MusicApplication;
+import aliguvenc.musicapp.helper.MusicApplication;
 import retrofit2.Call;
 import retrofit2.Callback;
 

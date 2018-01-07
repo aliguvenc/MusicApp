@@ -17,23 +17,32 @@ import aliguvenc.musicapp.databinding.TrackRowLayoutBinding;
 import aliguvenc.musicapp.http.Track;
 
 /**
- * Created by aliguvenc on 6.01.2018.
+ * Created by aliguvenc on 7.01.2018.
  */
 
-public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder> {
+public class FavoritesAdapter extends RecyclerView.Adapter<FavoritesAdapter.ViewHolder> {
 
     private List<Track> tracks;
+    private TrackRowLayoutBinding binding;
+    private MediaPlayer player;
+    private Track track;
 
     @Override
-    public TracksAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        TrackRowLayoutBinding binding = DataBindingUtil.inflate(LayoutInflater.from(MusicApplication.getINSTANCE()),
+    public FavoritesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        binding = DataBindingUtil.inflate(LayoutInflater.from(MusicApplication.getINSTANCE()),
                 R.layout.track_row_layout, parent, false);
         return new ViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(TracksAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(final FavoritesAdapter.ViewHolder holder, int position) {
         holder.bind(tracks.get(holder.getAdapterPosition()));
+    }
+
+    private void removeTrack(int adapterPosition) {
+        tracks.remove(adapterPosition);
+        notifyItemRemoved(adapterPosition);
+        MediaHelper.getINSTANCE().stopPlayers();
     }
 
     @Override
@@ -47,11 +56,11 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder
         notifyItemRangeInserted(0, tracks.size());
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         TrackRowLayoutBinding binding;
-        Track track;
         MediaPlayer player;
+        Track track;
 
         ViewHolder(TrackRowLayoutBinding binding) {
             super(binding.getRoot());
@@ -60,9 +69,10 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder
 
         void bind(Track track) {
             this.track = track;
-            binding.trackName.setText(track.getTitle());
+            binding.trackName.setText(String.format("%s - %s", track.getGenre().getName(), track.getTitle()));
             binding.playPause.setOnClickListener(clickListener);
             binding.like.setOnClickListener(clickListener);
+            binding.like.setChecked(track.isLiked());
         }
 
         View.OnClickListener clickListener = new View.OnClickListener() {
@@ -70,6 +80,9 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.like:
+                        if (track.isLiked()) {
+                            removeTrack(getAdapterPosition());
+                        }
                         MediaHelper.getINSTANCE().onLikeButtonClicked(track, binding.like);
                         break;
                     case R.id.playPause:
@@ -82,5 +95,6 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder
                 }
             }
         };
+
     }
 }

@@ -5,8 +5,8 @@ import android.databinding.ObservableBoolean;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
 
-import aliguvenc.musicapp.Communication;
-import aliguvenc.musicapp.MusicApplication;
+import aliguvenc.musicapp.helper.Communication;
+import aliguvenc.musicapp.helper.MusicApplication;
 import aliguvenc.musicapp.http.BaseCallback;
 import aliguvenc.musicapp.http.GenreResponse;
 import aliguvenc.musicapp.http.RestController;

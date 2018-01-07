@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import aliguvenc.musicapp.Communication;
-import aliguvenc.musicapp.MusicApplication;
+import aliguvenc.musicapp.helper.Communication;
+import aliguvenc.musicapp.helper.MusicApplication;
 import aliguvenc.musicapp.R;
 import aliguvenc.musicapp.databinding.ArtistRowLayoutBinding;
 import aliguvenc.musicapp.http.Genre;

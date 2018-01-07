@@ -7,7 +7,7 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
-import aliguvenc.musicapp.Communication;
+import aliguvenc.musicapp.helper.Communication;
 import aliguvenc.musicapp.http.Album;
 import aliguvenc.musicapp.http.Genre;
 import aliguvenc.musicapp.view.TracksFragment;

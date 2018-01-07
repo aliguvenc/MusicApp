@@ -3,7 +3,7 @@ package aliguvenc.musicapp.view;
 
 import android.support.v4.app.Fragment;
 
-import aliguvenc.musicapp.Communication;
+import aliguvenc.musicapp.helper.Communication;
 
 /**
  * A simple {@link Fragment} subclass.

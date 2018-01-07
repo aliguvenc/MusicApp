@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import aliguvenc.musicapp.Communication;
-import aliguvenc.musicapp.MusicApplication;
+import aliguvenc.musicapp.helper.Communication;
+import aliguvenc.musicapp.helper.MusicApplication;
 import aliguvenc.musicapp.R;
 import aliguvenc.musicapp.databinding.FragmentAlbumBinding;
 import aliguvenc.musicapp.http.AlbumResponse;
@@ -40,6 +40,7 @@ public class AlbumFragment extends BaseFragment implements Communication.DataLis
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ((MainActivity)getActivity()).hideToolbar();
         AlbumViewModel viewModel = new AlbumViewModel(this, getArguments());
         binding.setAlbumViewModel(viewModel);
     }

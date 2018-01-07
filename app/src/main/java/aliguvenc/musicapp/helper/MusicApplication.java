@@ -1,4 +1,4 @@
-package aliguvenc.musicapp;
+package aliguvenc.musicapp.helper;
 
 import android.app.Application;
 

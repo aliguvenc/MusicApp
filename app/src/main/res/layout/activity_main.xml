@@ -11,14 +11,18 @@
         tools:context="aliguvenc.musicapp.view.MainActivity">
 
         <android.support.v7.widget.Toolbar
+            android:id="@+id/mainToolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:titleTextColor="@color/white"/>
 
         <FrameLayout
             android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="56dp" />
+            android:layout_marginBottom="56dp"
+            android:layout_below="@+id/mainToolbar"/>
 
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/navigationView"

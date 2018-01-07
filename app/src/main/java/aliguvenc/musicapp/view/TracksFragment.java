@@ -9,8 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import aliguvenc.musicapp.Communication;
-import aliguvenc.musicapp.MusicApplication;
+import aliguvenc.musicapp.helper.Communication;
+import aliguvenc.musicapp.helper.MediaHelper;
+import aliguvenc.musicapp.helper.MusicApplication;
 import aliguvenc.musicapp.R;
 import aliguvenc.musicapp.databinding.FragmentTracksBinding;
 import aliguvenc.musicapp.http.Album;
@@ -41,6 +42,7 @@ public class TracksFragment extends BaseFragment implements Communication.DataLi
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ((MainActivity)getActivity()).hideToolbar();
         TrackViewModel viewModel = new TrackViewModel(this, getArguments());
         binding.setTrackViewModel(viewModel);
     }
@@ -58,5 +60,11 @@ public class TracksFragment extends BaseFragment implements Communication.DataLi
         TracksAdapter adapter = new TracksAdapter();
         binding.tracksRecyclerView.setAdapter(adapter);
         adapter.setTracks(trackResponse.getData());
+    }
+
+    @Override
+    public void onDetach() {
+        MediaHelper.getINSTANCE().stopPlayers();
+        super.onDetach();
     }
 }
