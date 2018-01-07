@@ -1,10 +1,12 @@
 package aliguvenc.musicapp.http;
 
+import java.io.Serializable;
+
 /**
  * Created by aliguvenc on 5.01.2018.
  */
 
-public class Genre {
+public class Genre implements Serializable {
 
     private String id;
     private String name;

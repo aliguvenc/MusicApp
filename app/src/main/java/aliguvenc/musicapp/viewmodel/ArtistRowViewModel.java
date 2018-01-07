@@ -9,18 +9,18 @@ import com.squareup.picasso.Picasso;
 
 import aliguvenc.musicapp.Communication;
 import aliguvenc.musicapp.http.Genre;
-import aliguvenc.musicapp.view.ArtistsFragment;
+import aliguvenc.musicapp.view.AlbumFragment;
 
 /**
  * Created by aliguvenc on 6.01.2018.
  */
 
-public class GenreRowViewModel extends BaseObservable {
+public class ArtistRowViewModel extends BaseObservable {
 
     private Genre genre;
     private Communication.Item itemClickListener;
 
-    public GenreRowViewModel(Genre genre, Communication.Item itemClickListener) {
+    public ArtistRowViewModel(Genre genre, Communication.Item itemClickListener) {
         this.genre = genre;
         this.itemClickListener = itemClickListener;
     }
@@ -48,6 +48,6 @@ public class GenreRowViewModel extends BaseObservable {
     }
 
     public void onItemClick() {
-        itemClickListener.onClick(ArtistsFragment.newInstance(genre));
+        itemClickListener.onClick(AlbumFragment.newInstance(genre));
     }
 }

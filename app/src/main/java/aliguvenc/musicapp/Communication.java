@@ -1,5 +1,7 @@
 package aliguvenc.musicapp;
 
+import android.support.v4.app.Fragment;
+
 /**
  * Created by aliguvenc on 6.01.2018.
  */
@@ -10,7 +12,7 @@ public class Communication {
         void onDataLoad(T data);
     }
 
-    public interface Item<T> {
-        void onClick(T item);
+    public interface Item {
+        void onClick(Fragment fragment);
     }
 }

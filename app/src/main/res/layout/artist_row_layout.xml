@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="genreRovVm"
-            type="aliguvenc.musicapp.viewmodel.GenreRowViewModel" />
+            name="artistRowViewModel"
+            type="aliguvenc.musicapp.viewmodel.ArtistRowViewModel" />
 
     </data>
 
@@ -21,7 +21,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             app:cardCornerRadius="4dp"
-            android:onClick="@{()->genreRovVm.onItemClick()}">
+            android:onClick="@{()->artistRowViewModel.onItemClick()}">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,12 +29,12 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/categoryImage"
+                    android:id="@+id/artistImage"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:contentDescription="@string/category_image"
+                    android:contentDescription="@string/artist_image"
                     android:padding="5dp"
-                    app:imageUrl="@{genreRovVm.imageUrl}" />
+                    app:imageUrl="@{artistRowViewModel.imageUrl}" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -42,11 +42,11 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/categoryName"
+                        android:id="@+id/artistName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:contentDescription="@string/category_image"
-                        android:text="@{genreRovVm.title}" />
+                        android:contentDescription="@string/artist_name"
+                        android:text="@{artistRowViewModel.title}" />
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>

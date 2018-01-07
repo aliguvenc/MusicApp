@@ -9,6 +9,29 @@ public class Track {
     private String id;
     private String title;
     private String preview;
+    private boolean isPlaying;
+    private boolean isLiked;
+    private Genre artist;
+
+    public Genre getGenre() {
+        return artist;
+    }
+
+    public boolean isLiked() {
+        return isLiked;
+    }
+
+    public void setLiked(boolean liked) {
+        isLiked = liked;
+    }
+
+    public boolean isPlaying() {
+        return isPlaying;
+    }
+
+    public void setPlaying(boolean playing) {
+        isPlaying = playing;
+    }
 
     public String getId() {
         return id;

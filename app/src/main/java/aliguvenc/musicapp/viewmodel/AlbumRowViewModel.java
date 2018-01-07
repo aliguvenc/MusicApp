@@ -8,36 +8,37 @@ import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 
 import aliguvenc.musicapp.Communication;
+import aliguvenc.musicapp.http.Album;
 import aliguvenc.musicapp.http.Genre;
-import aliguvenc.musicapp.view.ArtistsFragment;
+import aliguvenc.musicapp.view.TracksFragment;
 
 /**
  * Created by aliguvenc on 6.01.2018.
  */
 
-public class GenreRowViewModel extends BaseObservable {
+public class AlbumRowViewModel extends BaseObservable {
 
-    private Genre genre;
+    private Album album;
     private Communication.Item itemClickListener;
 
-    public GenreRowViewModel(Genre genre, Communication.Item itemClickListener) {
-        this.genre = genre;
+    public AlbumRowViewModel(Album album, Communication.Item itemClickListener) {
+        this. album= album;
         this.itemClickListener = itemClickListener;
     }
 
     @Bindable
     public Genre getGenre() {
-        return genre;
+        return album;
     }
 
     @Bindable
     public String getTitle() {
-        return genre.getName();
+        return album.getTitle();
     }
 
     @Bindable
     public String getImageUrl() {
-        return genre.getPicture();
+        return album.getCover_medium();
     }
 
     @BindingAdapter({"imageUrl"})
@@ -48,6 +49,6 @@ public class GenreRowViewModel extends BaseObservable {
     }
 
     public void onItemClick() {
-        itemClickListener.onClick(ArtistsFragment.newInstance(genre));
+        itemClickListener.onClick(TracksFragment.newInstance(album));
     }
 }

@@ -19,14 +19,13 @@ import aliguvenc.musicapp.viewmodel.GenreRowViewModel;
  * Created by aliguvenc on 6.01.2018.
  */
 
-public class GenreViewModel extends RecyclerView.Adapter<GenreViewModel.ViewHolder> {
+public class GenreAdapter extends RecyclerView.Adapter<GenreAdapter.ViewHolder> {
 
     private List<Genre> genres;
-    private static int genresSize;
-    private static Communication.Item<Genre> itemClickListener;
+    private static Communication.Item itemClickListener;
 
-    public GenreViewModel(Communication.Item<Genre> itemClickListener) {
-        GenreViewModel.itemClickListener = itemClickListener;
+    public GenreAdapter(Communication.Item itemClickListener) {
+        GenreAdapter.itemClickListener = itemClickListener;
     }
 
     @Override
@@ -43,8 +42,7 @@ public class GenreViewModel extends RecyclerView.Adapter<GenreViewModel.ViewHold
 
     @Override
     public int getItemCount() {
-        genresSize = genres == null ? 0 : genres.size();
-        return genresSize;
+        return genres == null ? 0 : genres.size();
     }
 
     public void setGenres(List<Genre> genres) {
@@ -63,8 +61,7 @@ public class GenreViewModel extends RecyclerView.Adapter<GenreViewModel.ViewHold
         }
 
         void bind(Genre genre) {
-            binding.setGenreRovVm(new GenreRowViewModel(genre));
-            binding.setItemClickListener(itemClickListener);
+            binding.setGenreRovVm(new GenreRowViewModel(genre,itemClickListener));
         }
     }
 }

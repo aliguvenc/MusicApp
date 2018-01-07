@@ -1,6 +1,5 @@
 package aliguvenc.musicapp.viewmodel;
 
-import android.databinding.BaseObservable;
 import android.databinding.ObservableBoolean;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
@@ -17,19 +16,19 @@ import retrofit2.Response;
  * Created by aliguvenc on 6.01.2018.
  */
 
-public class ExploreViewModel extends BaseObservable {
+public class ArtistsViewModel {
 
     public final ObservableBoolean isDataLoading;
     private Communication.DataListener<GenreResponse> dataListener;
 
-    public ExploreViewModel(Communication.DataListener<GenreResponse> dataListener) {
+    public ArtistsViewModel(Communication.DataListener<GenreResponse> dataListener) {
         isDataLoading = new ObservableBoolean(false);
         this.dataListener = dataListener;
     }
 
-    public void getGenres() {
+    public void getArtists(String id) {
         isDataLoading.set(true);
-        RestController.getInstance().getHttpService().getGenres().enqueue(new BaseCallback<GenreResponse>(isDataLoading) {
+        RestController.getInstance().getHttpService().getArtists(id).enqueue(new BaseCallback<GenreResponse>(isDataLoading) {
             @Override
             public void onResponse(@NonNull Call<GenreResponse> call, @NonNull Response<GenreResponse> response) {
                 isDataLoading.set(false);

@@ -6,7 +6,20 @@
 
     <!-- Content Descriptions -->
     <string name="explore_recycler_view">recycler view for showing music genres</string>
-    <string name="progress_bar">showing genre loading status</string>
+    <string name="progress_bar">showing loading status</string>
     <string name="category_image">showing category image</string>
+    <string name="artist_image">showing albumTitle image</string>
+    <string name="album_image">showing album image</string>
+    <string name="track_artist_image">showing track artist image</string>
+    <string name="add_remove_favorite_image">adds or removes from favorites</string>
+    <string name="play_pause_image">plays or pauses song</string>
     <string name="category_name">showing category name</string>
+    <string name="artist_name">showing albumTitle name</string>
+    <string name="album_name">showing album name</string>
+    <string name="track_name">showing track name</string>
+    <string name="artists_recycler_view">recycler view for showing artists</string>
+    <string name="tracks_recycler_view">recycler view for showing tracks</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

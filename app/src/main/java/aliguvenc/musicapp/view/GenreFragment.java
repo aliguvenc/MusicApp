@@ -12,18 +12,16 @@ import android.view.ViewGroup;
 import aliguvenc.musicapp.Communication;
 import aliguvenc.musicapp.R;
 import aliguvenc.musicapp.databinding.FragmentExploreBinding;
-import aliguvenc.musicapp.http.Genre;
 import aliguvenc.musicapp.http.GenreResponse;
-import aliguvenc.musicapp.view.adapter.GenreViewModel;
-import aliguvenc.musicapp.viewmodel.ExploreViewModel;
+import aliguvenc.musicapp.view.adapter.GenreAdapter;
+import aliguvenc.musicapp.viewmodel.GenreViewModel;
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GenreFragment extends Fragment implements Communication.DataListener<GenreResponse>
-        ,Communication.Item<Genre> {
+public class GenreFragment extends BaseFragment implements Communication.DataListener<GenreResponse> {
 
     private FragmentExploreBinding binding;
 
@@ -40,21 +38,15 @@ public class GenreFragment extends Fragment implements Communication.DataListene
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        ExploreViewModel viewModel = new ExploreViewModel(this);
-        viewModel.getGenres();
+        new GenreViewModel(this);
         binding.exploreMusicRV.setItemAnimator(new SlideInLeftAnimator());
-        binding.exploreMusicRV.setAdapter(new GenreViewModel(this));
+        binding.exploreMusicRV.setAdapter(new GenreAdapter(getClickListener()));
     }
 
     @Override
     public void onDataLoad(GenreResponse genreResponse) {
         if (genreResponse != null && genreResponse.getData() != null) {
-            ((GenreViewModel) binding.exploreMusicRV.getAdapter()).setGenres(genreResponse.getData());
+            ((GenreAdapter) binding.exploreMusicRV.getAdapter()).setGenres(genreResponse.getData());
         }
-    }
-
-    @Override
-    public void onClick(Genre item) {
-
     }
 }
