@@ -11,10 +11,10 @@ public class Genre implements Serializable {
     private String id;
     private String name;
     private String picture;
-    private String pictureSmall;
-    private String pictureMedium;
-    private String pictureBig;
-    private String pictureXl;
+    private String picture_small;
+    private String picture_medium;
+    private String picture_big;
+    private String picture_xl;
     private String type;
 
     public String getId() {
@@ -29,20 +29,20 @@ public class Genre implements Serializable {
         return picture;
     }
 
-    public String getPictureSmall() {
-        return pictureSmall;
+    public String getPicture_small() {
+        return picture_small;
     }
 
-    public String getPictureMedium() {
-        return pictureMedium;
+    public String getPicture_medium() {
+        return picture_medium;
     }
 
-    public String getPictureBig() {
-        return pictureBig;
+    public String getPicture_big() {
+        return picture_big;
     }
 
-    public String getPictureXl() {
-        return pictureXl;
+    public String getPicture_xl() {
+        return picture_xl;
     }
 
     public String getType() {

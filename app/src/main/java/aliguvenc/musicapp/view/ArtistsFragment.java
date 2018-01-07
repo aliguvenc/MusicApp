@@ -40,9 +40,7 @@ public class ArtistsFragment extends BaseFragment implements Communication.DataL
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ArtistsViewModel viewModel = new ArtistsViewModel(this);
-        String id = ((Genre) getArguments().getSerializable("genre")).getId();
-        viewModel.getArtists(id);
+        ArtistsViewModel viewModel = new ArtistsViewModel(this, getArguments());
         binding.setArtistsViewModel(viewModel);
     }
 

@@ -10,6 +10,24 @@ import java.util.List;
 public class GenreResponse {
 
     private List<Genre> data=new ArrayList<>();
+    private String genreTitle;
+    private String imageUrl;
+
+    public String getGenreTitle() {
+        return genreTitle;
+    }
+
+    public void setGenreTitle(String genreTitle) {
+        this.genreTitle = genreTitle;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     public List<Genre> getData() {
         return data;

@@ -45,7 +45,7 @@ public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.ViewHolder
         return albums.size();
     }
 
-    public void setArtists(List<Album> albums) {
+    public void setAlbums(List<Album> albums) {
         this.albums = new ArrayList<>();
         this.albums = albums;
         notifyItemRangeInserted(0, albums.size());

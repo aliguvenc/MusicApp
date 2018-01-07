@@ -40,9 +40,7 @@ public class AlbumFragment extends BaseFragment implements Communication.DataLis
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        AlbumViewModel viewModel = new AlbumViewModel(this);
-        String id = ((Genre) getArguments().getSerializable("genre")).getId();
-        viewModel.getAlbums(id);
+        AlbumViewModel viewModel = new AlbumViewModel(this, getArguments());
         binding.setAlbumViewModel(viewModel);
     }
 
@@ -58,6 +56,6 @@ public class AlbumFragment extends BaseFragment implements Communication.DataLis
     public void onDataLoad(AlbumResponse albums) {
         AlbumsAdapter adapter = new AlbumsAdapter(getClickListener());
         binding.albumsRecyclerView.setAdapter(adapter);
-        adapter.setArtists(albums.getData());
+        adapter.setAlbums(albums.getData());
     }
 }

@@ -6,11 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import aliguvenc.musicapp.MediaHelper;
 import aliguvenc.musicapp.MusicApplication;
 import aliguvenc.musicapp.R;
 import aliguvenc.musicapp.databinding.TrackRowLayoutBinding;
@@ -70,41 +70,14 @@ public class TracksAdapter extends RecyclerView.Adapter<TracksAdapter.ViewHolder
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.like:
-                        if (track.isLiked()) {
-                            binding.like.setChecked(false);
-                            track.setLiked(false);
-                        } else {
-                            binding.like.setChecked(true);
-                            track.setLiked(true);
-                        }
+                        MediaHelper.getINSTANCE().onLikeButtonClicked(track, binding.like);
                         break;
                     case R.id.playPause:
                         if (player == null) {
                             player = new MediaPlayer();
-                            try {
-                                binding.playPause.setImageResource(R.drawable.pause);
-                                track.setPlaying(true);
-                                player.setDataSource(track.getPreview());
-                                player.prepare();
-                                player.start();
-                                player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                                    @Override
-                                    public void onCompletion(MediaPlayer mediaPlayer) {
-                                        binding.playPause.setImageResource(R.drawable.play);
-                                        track.setPlaying(false);
-                                    }
-                                });
-                            } catch (Exception e) {
-                                Toast.makeText(MusicApplication.getINSTANCE(), "Şarkı çalınırken bir hata oluştu.", Toast.LENGTH_SHORT).show();
-                            }
-                        }else if (player.isPlaying()){
-                            player.pause();
-                            binding.playPause.setImageResource(R.drawable.play);
-                            track.setPlaying(false);
-                        }else {
-                            player.start();
-                            binding.playPause.setImageResource(R.drawable.pause);
-                        }
+                            MediaHelper.getINSTANCE().onPlayButtonClicked(track, binding.playPause, player, false);
+                        } else
+                            MediaHelper.getINSTANCE().onPlayButtonClicked(track, binding.playPause, player, true);
                         break;
                 }
             }
